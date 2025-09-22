@@ -8,7 +8,7 @@
 
 body{
     height: 100vh;
-    background: url(images/back.jpg) no-repeat center / cover;
+    background: url(images/fond.jpg) no-repeat center / cover;
     padding: 50px 5%;
 }
 
@@ -95,14 +95,16 @@ transition: .5s;
 .home-detail h2{
     font-size: 32px;
 }
-.home-detail p {
+.home-detail p a {
     margin: 10px 0 20px;
+    text-decoration: none;
+    color: #fff;
 }
 
 .home-detail .download-social{
     display: flex;
     align-items: center;
-
+    margin: 20px;
 }
 
 .btn{
