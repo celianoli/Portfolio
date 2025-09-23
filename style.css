@@ -8,7 +8,7 @@
 
 body{
     height: 100vh;
-    background: url(images/fond.jpg) no-repeat center / cover;
+    background: url(images/fonde.jpg) no-repeat center / cover;
     padding: 50px 5%;
 }
 
@@ -18,16 +18,15 @@ body{
     background: rgba(255, 255, 255, .1);
     border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 30px;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(12px);
+    transform: scale(0);
+    animation: zoom-in 1s ease forwards;
 }
-    /*transform: scale(0);
-     /*animation: zoom-in 1s ease forwards;*/ 
-
-/*@keyframes zoom-in {
+@keyframes zoom-in {
     100%{
         transform: scale(1);
     }
-}*/
+}
 
 header{
     position: absolute;
@@ -41,19 +40,19 @@ header{
     z-index: 100;
 }
 
-/*.animated{
+.animated{
     transform: translateY(30px);
     opacity: 0;
     animation: slide-in 1s ease forwards;
     animation-delay: 1s;
 }
 
-/*@keyframes slide-in{
+@keyframes slide-in{
     100%{
         transform: translateY(0);
          opacity: 1;
     }
-}*/
+}
 
 .logo{
     font-size: 25px;
@@ -168,13 +167,13 @@ transition: .5s;
 }
 
 /* ----- SECTIONS GÉNÉRIQUES ----- */
-section{
- padding: 100px 10%;
- color: #fff;
- text-align: center;
+section {
+    padding: 100px 10%;
+    color: #fff;
+    text-align: center;
 }
 
-section h2{
+section h2 {
     font-size: 40px;
     margin-bottom: 30px;
     position: relative;
@@ -199,5 +198,175 @@ section h2::after {
     margin: 15px auto;
     font-size: 18px;
     line-height: 1.6;
+}
+
+/* ----- PORTFOLIO ----- */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.4s;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #fff;
+}
+
+/* ----- CONTACT ----- */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+.contact textarea {
+    min-height: 150px;
+    resize: none;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #eee;
+}
+
+/* Icônes sociales fixes en bas à gauche */
+.contact .social-icons {
+    position: fixed;
+    bottom: 20px;  /* distance depuis le bas de l'écran */
+    left: 20px;    /* distance depuis la gauche de l'écran */
+    display: flex;
+    flex-direction: space; /* icônes en colonne */
+    gap: 15px; /* espace entre chaque icône */
+    z-index: 1000;
+}
+
+.contact .social-icons a {
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact .social-icons a:hover {
+    background: #fff;
     color: #333;
+    box-shadow: 0 0 10px #fff;
+}
+
+
+/* ----- RESPONSIVE ----- */
+@media screen and (max-width: 1024px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding-top: 80px;
+    }
+
+    .home-img .img-box {
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .home-detail h1 {
+        font-size: 45px;
+    }
+
+    .home-detail h2 {
+        font-size: 28px;
+    }
+
+    .portfolio-container, .services-container {
+        gap: 20px;
+    }
+
+    .service {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 30px 5%;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 5%;
+    }
+
+    .navbar a {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .home-img .img-box {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .service {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-detail h1 {
+        font-size: 32px;
+    }
+
+    .home-detail h2 {
+        font-size: 22px;
+    }
+
+    .home-img .img-box {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        margin-left: 10px;
+    }
 }
